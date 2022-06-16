@@ -11,6 +11,43 @@
   transition: all 0.5s;
 }
 
+.toggleMenu .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  margin: 20px 10px 10px 20px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.toggleMenu #help a {
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.toggleMenu #reset, .toggleMenu #help {
+  padding: 10px 15px;
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 24px;
+  font-weight: 100;
+  -webkit-transition: all 0.3s, -webkit-transform .5s;
+  transition: all 0.3s, -webkit-transform .5s;
+  transition: all 0.3s, transform .5s;
+  transition: all 0.3s, transform .5s, -webkit-transform .5s;
+}
+
+.toggleMenu #reset:hover, .toggleMenu #help:hover {
+  background-color: var(--thirdBgColor);
+  -webkit-transform: scale(1.2) rotate(360deg);
+          transform: scale(1.2) rotate(360deg);
+  font-weight: 600;
+}
+
 .showToggleMenu {
   right: 0;
 }

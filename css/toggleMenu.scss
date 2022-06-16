@@ -6,9 +6,40 @@
     top: 0;
     bottom: 0;
     right: -800px;
+    // right: 0;
     z-index: 1;
     transition: all 0.5s;
     // visibility: hidden;
+
+    .options {
+        display: flex;
+        gap: 30px;
+        margin: 20px 10px 10px 20px;
+        align-content: center;
+    }
+
+    #help a {
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+
+    #reset,#help {
+        padding: 10px 15px;
+        color: black;
+        background-color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 24px;
+        font-weight: 100;
+        transition: all 0.3s, transform .5s;
+    }
+
+    #reset:hover, #help:hover{
+        background-color: var(--thirdBgColor);
+        transform: scale(1.2) rotate(360deg);
+        font-weight: 600;
+    }
 }
 
 .showToggleMenu {

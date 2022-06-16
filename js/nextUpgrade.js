@@ -16,6 +16,9 @@ const clicksRequiredCal = () => {
     currentLevel = parseInt(levelValue.innerText)
     clicksCal = Math.round((currentLevel * 6000) * 1.25);
     clicksUpgradeValue.innerText = clicksCal;
+    //Upgrade level value
+    console.log(currentLevel)   
+    levelUpgradeValue.innerText = currentLevel + 1;
     // console.log(clicksCal)
 }
 
@@ -43,6 +46,7 @@ const Verification = () => {
         levelUpSound.currentTime = 0;
         levelUpSound.play()
         levelUpgradeValue.innerText = newUpgradeValue;
+        updateLocalStorage()
     }
 
     else {
