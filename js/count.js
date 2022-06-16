@@ -15,11 +15,11 @@ const boosterValue = document.getElementById("boosterValue");
 
 
 const updateStats = () => {
-    calculatePoints()
-    updateLocalStorage()
     value = parseInt(clicksValue.innerText)
     value += clickCount
     clicksValue.innerText = value;
+    calculatePoints()
+    updateLocalStorage()
     clickCount = 0
     clickDisplay.innerText = 0;
 }
