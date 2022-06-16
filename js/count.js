@@ -51,7 +51,7 @@ resetBtn.addEventListener("click", (e) => {
         levelValue.innerText = 1;
         pointsRequiredCal();
         clicksRequiredCal();
-        updateLocalStorage()
+        updateLocalStorage();
     }
     else {
 
@@ -63,10 +63,6 @@ const updateLocalStorage = () => {
     localStorage.setItem("clicks", parseInt(clicksValue.innerText))
     localStorage.setItem("points", parseFloat(pointsValue.innerText))
     localStorage.setItem("level", parseInt(levelValue.innerText));
-   
-    console.log(localStorage.getItem("clicks"))
-    console.log(localStorage.getItem("points"))
-    console.log(localStorage.getItem("level"))
 }
 
 if (localStorage.getItem("level") == null) {
