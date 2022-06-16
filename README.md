@@ -1,1 +1,2 @@
-# Clicker-App
+# Clicker-Project || Click Simulator
+ 

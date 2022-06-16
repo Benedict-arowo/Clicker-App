@@ -1,0 +1,17 @@
+.toggleMenu {
+  position: absolute;
+  background-color: var(--toggleMenuBgColor);
+  width: 600px;
+  border-left: 2px solid var(--borderColor);
+  top: 0;
+  bottom: 0;
+  right: -800px;
+  z-index: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.showToggleMenu {
+  right: 0;
+}
+/*# sourceMappingURL=toggleMenu.css.map */

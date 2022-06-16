@@ -1,0 +1,67 @@
+header {
+    padding: 30px;
+    padding-bottom: 0;
+    width: 100%;
+    max-height: 250px;
+
+    .headerWrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 80px;
+
+        #logo {
+            cursor: pointer;
+        }
+
+        .topLeft {
+            display: flex;
+
+            .themes {
+                cursor: pointer;
+                display: flex;
+                align-self: center;
+                gap: 20px;
+    
+                .theme {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 50%;
+                    transition: all 0.2s;
+                }
+    
+                .theme:hover {
+                    transform: scale(1.1);
+                }
+    
+                .red {
+                    background-color: #FF7373;
+                    border: 3px solid #8C0000;
+                }
+    
+                .green {
+                    background-color: #29FFB2;
+                    border: 1px solid #006C45;
+                }
+            }
+    
+            #hamburger {
+                font-size: 48px;
+                align-self: flex-start;
+                transition: all .3s;
+                z-index: 10;
+                cursor: pointer;
+                color: var(--toggleButtonColor);
+            }
+
+            #hamburger:hover {
+                transform: rotate(180deg);
+                color: white;
+            }
+
+            #hamburger:active {
+                transform: scale(1.1);
+                color: var(--borderColor);
+            }
+        }
+    }
+}

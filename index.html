@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/0e01b37056.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/toggleMenu.css">
+    <link id="style" rel="stylesheet" href="css/green.css">
+    <title>Clicker App</title>
+    <link rel="shortcut icon" href="img/Logo.svg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="headerWrapper">
+            <img id="logo" src="img/Logo.svg" alt="Site Logo">
+            <div class="topLeft">
+                <div class="themes">
+                    <div data-id="css/green.css" class="theme green"></div>
+                    <div data-id="css/general.css" class="theme red"></div>
+                </div>
+                <i id="hamburger" class="fa-solid fa-bars"></i>
+            </div>
+            </div>
+
+    </header>
+    
+    <section id="toggleMenu" class="toggleMenu">
+        <div class="toggleMenuWrapper">
+            <h1>Shop Menu</h1>
+            <div class="items">
+                <div class="boosters">
+                    <h3>Boosters</h3>
+                </div>
+                <div class="clickMultipliers">
+                    <h3>Click Multipliers</h3>
+                </div>
+                <div class="autoClickers">
+                    <h3>Auto Clickers</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="mainWrapper">
+            <section class="stats">
+                <div class="statsWrapper">
+                    <h2>Stats</h2>
+                    <div class="statsContent">
+                        <p>Clicks: <span class="statsValue" id="clickValue">0</span></p>
+                        <p>Points: <span class="statsValue" id="pointsValue">0</span></p>
+                        <p>Level: <span class="statsValue" id="levelValue">1</span></p>
+                        <p>Booster: <span class="statsValue" id="boosterValue"></span></p>
+                    </div>
+                    <div class="decorDiv"></div>
+                </div>
+            </section>
+
+            <section class="mainArea">
+                <div class="mainAreaWrapper">
+                    <div class="upgrade">
+                        <h2>Next Upgrade</h2>
+                        <div class="upgradeContent">
+                            <p>Clicks: <span class="upgradeValue" id="clickUpgradeValue">0</span></p>
+                            <p>Points: <span class="upgradeValue" id="pointsUpgradeValue">0</span></p>
+                            <p>Level: <span class="upgradeValue" id="levelUpgradeValue">2</span></p>
+                        </div>
+                        <div class="decorDiv">
+                            <button id="upgradeBtn" class="upgradeBtn">Upgrade</button>
+                            <p id="alertText" class="alert"></p>
+                        </div>
+                    </div>
+                    <div class="areaContent">
+                        <div class="mainContent">
+                            <div id="button"></div>
+                            <p class="clickCount">Clicks: <span id="clickCountValue">0</span></p>
+                        </div>
+                        <div class="buttons">
+                            <button id="updateButton" class="button">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/selector.js"></script>
+    <script src="js/count.js"></script>
+    <script src="js/nextUpgrade.js"></script>
+</body>
+</html>
