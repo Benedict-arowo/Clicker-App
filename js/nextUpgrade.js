@@ -17,7 +17,7 @@ const clicksRequiredCal = () => {
     clicksCal = Math.round((currentLevel * 6000) * 1.25);
     clicksUpgradeValue.innerText = clicksCal;
     //Upgrade level value
-    console.log(currentLevel)   
+    // console.log(currentLevel)   
     levelUpgradeValue.innerText = currentLevel + 1;
     // console.log(clicksCal)
 }

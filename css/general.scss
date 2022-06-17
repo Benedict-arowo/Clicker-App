@@ -8,6 +8,7 @@ body {
     background-color: var(--mainBgColor);
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 :root {
@@ -17,6 +18,8 @@ body {
     --thirdBgColor: #FF9D9D;
     --toggleMenuBgColor: #fb5f5fd5;
     --toggleButtonColor: #CD0000;
+
+    --menuItemBg: #ffc2c2;
 
     --textColor: red;
     --boxShadow: rgba(158, 20, 20, 0.25);

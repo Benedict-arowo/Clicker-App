@@ -28,7 +28,7 @@ const calculatePoints = () => {
     let currentLevel = parseInt(levelValue.innerText);
     let currentPoints = parseInt(pointsValue.innerText);
     let points = ((currentLevel/10) * clickCount)
-    points = ((points * 0.5) + currentPoints)
+    points = parseFloat((points * 0.5) + currentPoints).toFixed(2)
     pointsValue.innerText = points;
 }
 

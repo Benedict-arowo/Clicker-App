@@ -1,3 +1,7 @@
+.toggleMenu::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
 .toggleMenu {
     position: absolute;
     background-color: var(--toggleMenuBgColor);
@@ -9,13 +13,49 @@
     // right: 0;
     z-index: 1;
     transition: all 0.5s;
+    overflow-y: scroll;
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
     // visibility: hidden;
 
     .options {
         display: flex;
+        flex-direction: row;
         gap: 30px;
         margin: 20px 10px 10px 20px;
         align-content: center;
+        justify-content: space-between;
+
+        .topRight {
+            font-size: 40px;
+            margin-right: 120px;
+            transition: all .3s;
+            cursor: pointer;
+
+            i {
+                color: var(--toggleButtonColor);
+            }
+        }
+
+        .topRight:hover {
+            transform: rotate(180deg);
+        }
+
+        .topRight:hover i {
+            color: white;
+        }
+
+        .topRight:active {
+            transform: scale(1.1);
+            color: var(--borderColor);
+        }
+
+        .topLeft {
+            display: flex;
+            gap: 10px;
+        }
     }
 
     #help a {
@@ -39,6 +79,88 @@
         background-color: var(--thirdBgColor);
         transform: scale(1.2) rotate(360deg);
         font-weight: 600;
+    }
+
+    .shop {
+        margin-top: 40px;
+        background-color: rgba(255, 255, 255, 0.853);
+        
+        h1 {
+            text-align: center;
+            font-size: 40px;  
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        
+        h3 {
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .upgrades {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+
+            .requirements {
+                font-weight: 200;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .upgradeName {
+                margin-top: 10px;
+                text-align: center;
+                font-weight: 500;
+            }
+
+            .upgradeItem {
+                background-color: var(--menuItemBg);
+                padding: 15px 20px;
+                flex-basis: 150px;
+                border: 2px solid var(--borderColor);
+                border-radius: 15px;
+                box-shadow: 5px -1px 5px var(--boxShadow);
+            }
+
+
+            .itemLogo {
+                background-color: var(--thirdBgColor);
+                border: 2px solid white;
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                color: white;
+                display: flex;
+                margin: 0 auto;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 10px -1px 10px var(--boxShadow);
+                transition: all 0.3s;
+
+                
+                .icon {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+
+            .itemLogo:hover {
+                transform: scale(1.1);
+            }
+
+        }
+
+        .autoClickers {
+            margin-bottom: 30px;
+        }
     }
 }
 

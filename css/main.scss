@@ -1,13 +1,15 @@
 main {
-    // background-color: black;
-    min-width: 100%;
-    height: 73vh;
+    min-height: 73vh;
+    display: flex;
 
     .mainWrapper {
         width: 100%;
+        align-self: flex-end;
         height: 100%;
-        position: relative;
+        // position: relative;
+        align-content: flex-end;
         display: flex;
+        flex-wrap: wrap;
         gap: 60px;
     }
 }
@@ -16,9 +18,10 @@ main {
     background-color: var(--secondBgColor);
     width: 220px;
     // display: none;
+    align-self: flex-end;
     overflow: hidden;
     height: 400px;
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     padding: 15px;
     border: 1px solid var(--borderColor);
@@ -56,7 +59,7 @@ main {
 }
 
 .mainArea {
-    position: absolute;
+    // position: absolute;
     right: 60px;
     bottom: 0;
     height: 77%;
@@ -65,6 +68,7 @@ main {
 
     .mainAreaWrapper {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         background-color: var(--secondBgColor);
         border: 1px solid var(--borderColor);
@@ -77,8 +81,9 @@ main {
             background-color: white;
             border-radius: 25px 25px 0 0;
             overflow: hidden;
-            padding-bottom: 10px;
+            // padding-bottom: 5px;
             height: 100%;
+            align-self: flex-end;
             width: 200px;
             border: 1px solid var(--borderColor);
 
@@ -102,6 +107,11 @@ main {
             .upgradeValue {
                 color: var(--textColor);
             }
+
+            .decorDiv {
+               height: max-content;
+               min-height: 150px;
+            }
         }
 
         .areaContent {
@@ -111,6 +121,7 @@ main {
             justify-content: center;
             padding: 10px 20px;
             align-items: center;
+        
 
             .mainContent {
                 display: flex;
@@ -171,6 +182,10 @@ main {
     height: 100%;
     width: 100%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-content: center;
     background-color: var(--thirdBgColor);
 
     button {

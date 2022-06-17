@@ -64,7 +64,6 @@ header .headerWrapper .topLeft #hamburger {
       align-self: flex-start;
   -webkit-transition: all .3s;
   transition: all .3s;
-  z-index: 10;
   cursor: pointer;
   color: var(--toggleButtonColor);
 }
