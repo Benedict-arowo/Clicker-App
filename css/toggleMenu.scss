@@ -3,7 +3,7 @@
 }
 
 .toggleMenu {
-    position: absolute;
+    position: fixed;
     background-color: var(--toggleMenuBgColor);
     width: 600px;
     border-left: 2px solid var(--borderColor);
@@ -124,7 +124,7 @@
             .upgradeItem {
                 background-color: var(--menuItemBg);
                 padding: 15px 20px;
-                flex-basis: 150px;
+                flex-basis: 170px;
                 border: 2px solid var(--borderColor);
                 border-radius: 15px;
                 box-shadow: 5px -1px 5px var(--boxShadow);

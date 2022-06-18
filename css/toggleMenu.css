@@ -4,7 +4,7 @@
 }
 
 .toggleMenu {
-  position: absolute;
+  position: fixed;
   background-color: var(--toggleMenuBgColor);
   width: 600px;
   border-left: 2px solid var(--borderColor);
@@ -152,8 +152,8 @@
 .toggleMenu .shop .upgrades .upgradeItem {
   background-color: var(--menuItemBg);
   padding: 15px 20px;
-  -ms-flex-preferred-size: 150px;
-      flex-basis: 150px;
+  -ms-flex-preferred-size: 170px;
+      flex-basis: 170px;
   border: 2px solid var(--borderColor);
   border-radius: 15px;
   -webkit-box-shadow: 5px -1px 5px var(--boxShadow);

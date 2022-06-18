@@ -11,7 +11,7 @@ const levelUpSound = new Audio("audio/levelUpSound.mp3")
 const clicksValue = document.getElementById("clickValue");
 const pointsValue = document.getElementById("pointsValue");
 const levelValue = document.getElementById("levelValue");
-const boosterValue = document.getElementById("boosterValue");
+const multiplier = document.getElementById("multiplierValue");
 
 
 const updateStats = () => {
@@ -49,6 +49,7 @@ resetBtn.addEventListener("click", (e) => {
         clicksValue.innerText = 0;
         pointsValue.innerText = 0;
         levelValue.innerText = 1;
+        multiplier.innerText = "";
         pointsRequiredCal();
         clicksRequiredCal();
         updateLocalStorage();
