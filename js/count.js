@@ -11,7 +11,9 @@ const levelUpSound = new Audio("audio/levelUpSound.mp3")
 const clicksValue = document.getElementById("clickValue");
 const pointsValue = document.getElementById("pointsValue");
 const levelValue = document.getElementById("levelValue");
-const multiplier = document.getElementById("multiplierValue");
+const multiplierClicks = document.getElementById("multiplierValueClicks");
+const multiplierPoints = document.getElementById("multiplierValuePoints");
+const multiplierAutoclicks = document.getElementById("multiplierValueAutoClickers");
 
 
 const updateStats = () => {
@@ -27,16 +29,28 @@ const updateStats = () => {
 const calculatePoints = () => {
     let currentLevel = parseInt(levelValue.innerText);
     let currentPoints = parseInt(pointsValue.innerText);
+    
     let points = ((currentLevel/10) * clickCount)
+    if (multiplierPoints.innerText == "X3" || multiplierPoints.innerText == "X5" || multiplierPoints.innerText == "X8") {
+        points = pointMultiplier(points)
+    }
     points = parseFloat((points * 0.5) + currentPoints).toFixed(2)
-    pointsValue.innerText = points;
+    pointsValue.innerText = points
 }
 
 clickBtn.addEventListener('click', (e) => {
     clickSound.currentTime = 0;
     clickSound.play()
-    clickCount++
-    clickDisplay.innerText = clickCount;
+        // Checks if it has click modifiers
+    if (multiplierClicks.innerText == "X1.5" || multiplierClicks.innerText == "X5" || multiplierClicks.innerText == "X6") {
+        let click = clicksMultiplier()
+        clickCount = clickCount + click;
+        clickDisplay.innerText = clickCount;
+    }
+    else {
+        clickCount++;
+        clickDisplay.innerText = clickCount;
+    }
 })
 
 updateButton.addEventListener('click', (e) => {
@@ -49,7 +63,9 @@ resetBtn.addEventListener("click", (e) => {
         clicksValue.innerText = 0;
         pointsValue.innerText = 0;
         levelValue.innerText = 1;
-        multiplier.innerText = "";
+        multiplierClicks.innerText = "";
+        multiplierPoints.innerText = "";
+        multiplierAutoclicks.innerText = "";
         pointsRequiredCal();
         clicksRequiredCal();
         updateLocalStorage();
@@ -75,4 +91,3 @@ else {
     levelValue.innerText = localStorage.getItem("level");
 
 }
-
