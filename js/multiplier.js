@@ -31,3 +31,17 @@ const clicksMultiplier = (click) => {
         return click;
     }
 };
+
+const autoclicker = () => {
+    let currentClicksMultiplier = multiplierAutoclicker.innerText;
+    
+    if (currentClicksMultiplier == '2c/s'){
+
+    }
+    else if (currentClicksMultiplier == '4c/s'){
+
+    }
+    else if (currentClicksMultiplier == '6c/s'){ 
+
+    }
+};

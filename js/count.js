@@ -82,6 +82,7 @@ const updateLocalStorage = () => {
     localStorage.setItem("level", parseInt(levelValue.innerText));
 }
 
+
 if (localStorage.getItem("level") == null) {
     
 }
@@ -89,5 +90,5 @@ else {
     clicksValue.innerText = localStorage.getItem("clicks");
     pointsValue.innerText = localStorage.getItem("points");
     levelValue.innerText = localStorage.getItem("level");
-
 }
+

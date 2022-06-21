@@ -12,7 +12,6 @@
   bottom: 0;
   right: -800px;
   z-index: 1;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -21,64 +20,42 @@
   /* for Firefox */
   overflow-y: scroll;
 }
-
 .toggleMenu .options {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   gap: 30px;
   margin: 20px 10px 10px 20px;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-content: center;
+  justify-content: space-between;
 }
-
 .toggleMenu .options .topRight {
   font-size: 40px;
   margin-right: 120px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  transition: all 0.3s;
   cursor: pointer;
 }
-
 .toggleMenu .options .topRight i {
   color: var(--toggleButtonColor);
 }
-
 .toggleMenu .options .topRight:hover {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
 .toggleMenu .options .topRight:hover i {
   color: white;
 }
-
 .toggleMenu .options .topRight:active {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   color: var(--borderColor);
 }
-
 .toggleMenu .options .topLeft {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 10px;
 }
-
 .toggleMenu #help a {
   color: black;
   padding: 10px 20px;
   text-decoration: none;
 }
-
 .toggleMenu #reset, .toggleMenu #help {
   padding: 10px 15px;
   color: black;
@@ -87,79 +64,63 @@
   border-radius: 25px;
   font-size: 24px;
   font-weight: 100;
-  -webkit-transition: all 0.3s, -webkit-transform .5s;
-  transition: all 0.3s, -webkit-transform .5s;
-  transition: all 0.3s, transform .5s;
-  transition: all 0.3s, transform .5s, -webkit-transform .5s;
+  transition: all 0.3s, transform 0.5s;
 }
-
 .toggleMenu #reset:hover, .toggleMenu #help:hover {
   background-color: var(--thirdBgColor);
-  -webkit-transform: scale(1.2) rotate(360deg);
-          transform: scale(1.2) rotate(360deg);
+  transform: scale(1.2) rotate(360deg);
   font-weight: 600;
 }
-
 .toggleMenu .shop {
   margin-top: 40px;
   background-color: rgba(255, 255, 255, 0.853);
 }
-
 .toggleMenu .shop h1 {
   text-align: center;
   font-size: 40px;
 }
-
 .toggleMenu .shop .items {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 20px;
 }
-
 .toggleMenu .shop h3 {
   text-align: center;
-  padding: 10px;
   font-size: 24px;
-  margin-bottom: 10px;
 }
-
+.toggleMenu .shop .multiplierTiming {
+  font-size: 12px;
+  color: gray;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.toggleMenu .shop .highlight {
+  color: var(--textColor);
+}
 .toggleMenu .shop .upgrades {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
-
 .toggleMenu .shop .upgrades .requirements {
   font-weight: 200;
   text-align: left;
   margin-top: 10px;
 }
-
 .toggleMenu .shop .upgrades .upgradeName {
   margin-top: 10px;
   text-align: center;
   font-weight: 500;
 }
-
 .toggleMenu .shop .upgrades .upgradeItem {
   background-color: var(--menuItemBg);
   padding: 15px 20px;
-  -ms-flex-preferred-size: 170px;
-      flex-basis: 170px;
+  flex-basis: 170px;
   border: 2px solid var(--borderColor);
   border-radius: 15px;
-  -webkit-box-shadow: 5px -1px 5px var(--boxShadow);
-          box-shadow: 5px -1px 5px var(--boxShadow);
+  box-shadow: 5px -1px 5px var(--boxShadow);
 }
-
 .toggleMenu .shop .upgrades .itemLogo {
   background-color: var(--thirdBgColor);
   border: 2px solid white;
@@ -167,37 +128,24 @@
   height: 72px;
   border-radius: 50%;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 10px -1px 10px var(--boxShadow);
-          box-shadow: 10px -1px 10px var(--boxShadow);
-  -webkit-transition: all 0.3s;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px -1px 10px var(--boxShadow);
   transition: all 0.3s;
 }
-
 .toggleMenu .shop .upgrades .itemLogo .icon {
   width: 45px;
   height: 45px;
 }
-
 .toggleMenu .shop .upgrades .itemLogo:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 .toggleMenu .shop .autoClickers {
   margin-bottom: 30px;
 }
 
 .showToggleMenu {
   right: 0;
-}
-/*# sourceMappingURL=toggleMenu.css.map */
+}/*# sourceMappingURL=toggleMenu.css.map */

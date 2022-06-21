@@ -2,6 +2,14 @@ const shopItem = document.querySelectorAll(".itemLogo");
 const shopItemCLick = new Audio("audio/shopItemClick.mp3")
 let ethingy;
 
+
+const calculateStats = (clicks, points) => {
+    let newClickValue = parseFloat(clicksValue.innerText) - clicks;
+    let newPointValue = parseFloat(pointsValue.innerText) - points;
+    clicksValue.innerText = newClickValue;
+    pointsValue.innerText = newPointValue;
+};
+
 shopItem.forEach(item => {
     item.addEventListener('click', (e) => {
         const clickedItemParent = e.target.parentNode.parentNode
@@ -10,7 +18,7 @@ shopItem.forEach(item => {
         const itemClicks = parseFloat(itemRequirements[0].innerText)
         const itemPoints = parseFloat(itemRequirements[1].innerText)
         const itemMultiplier = itemRequirements[2].innerText
-        // console.log(itemClicks, itemPoints, itemMultiplier, item)
+        console.log(itemClicks, itemPoints, itemMultiplier, item)
         let currentPoints = parseFloat(pointsValue.innerText)
         let currentClicks = parseFloat(clicksValue.innerText)
         if (itemPoints > currentPoints && itemClicks > currentClicks) {
@@ -23,33 +31,43 @@ shopItem.forEach(item => {
             alert("You do not have enough clicks!")
         }
         else {
-
             shopItemCLick.play()
-            if (multiplier.innerText.length == 0) {
-                multiplier.innerText = itemMultiplier;
+            if (item == 'point'){
+                if (multiplierPoints.innerText.length == 0) {
+                    multiplierPoints.innerText = itemMultiplier;
+                    calculateStats(itemClicks, itemPoints)
+                    const pointMultiplierTimeout = setTimeout(() => {
+                        multiplierPoints.innerText = null;
+                        alert("Point multiplier ran out!");
+                    }, 60000)
+                }
+                else {
+                    alert("You currently have a booster running.")
+                }
             }
-            else {
-                alert("You currently have a booster running.")
+
+            else if (item == 'click') {
+                if (multiplierClicks.innerText.length == 0) {
+                    multiplierClicks.innerText = itemMultiplier;
+                    console.log(itemClicks, itemPoints)
+                    calculateStats(itemClicks, itemPoints)
+                    const clickMultiplierTimeout = setTimeout(() => {
+                        multiplierClicks.innerText = null;
+                        alert("Click multiplier ran out!");
+                    }, 120000)
+                }
+                else {
+                    alert("You currently have a booster running.")
+                }
             }
 
-
-
-
-        //     if (item == "point"){
-        //         parseInt(multiplier.innerText += parseInt(itemMultiplier[1]);
-        //         console.log(multiplierValue)
-        //         console.log("point yes")
-        //     }
-        //     else if (item == "click"){
-        //         multiplier.innerText = itemMultiplier
-        //         console.log(multiplierValue)
-        //         console.log("point yes")
-        //     }
-        // else if (item == "autoclicker") {
-        //     console.log("autoclicker yes")
-        // }
-    }
-        
-        ethingy = e
+            else if (item == 'autoclicker'){
+                console.log("Autoclicker clicked")
+                setTimeout(() => {
+                    multiplierClicks.innerText = null;
+                    alert("Click multiplier ran out!");
+                }, 30000)
+            }
+        }
     })
 });
