@@ -37,7 +37,7 @@ shopItem.forEach(item => {
                     multiplierPoints.innerText = itemMultiplier;
                     calculateStats(itemClicks, itemPoints)
                     const pointMultiplierTimeout = setTimeout(() => {
-                        multiplierPoints.innerText = null;
+                        multiplierPoints.innerText = '';
                         alert("Point multiplier ran out!");
                     }, 60000)
                 }
@@ -52,7 +52,7 @@ shopItem.forEach(item => {
                     console.log(itemClicks, itemPoints)
                     calculateStats(itemClicks, itemPoints)
                     const clickMultiplierTimeout = setTimeout(() => {
-                        multiplierClicks.innerText = null;
+                        multiplierClicks.innerText = '';
                         alert("Click multiplier ran out!");
                     }, 120000)
                 }
@@ -62,12 +62,34 @@ shopItem.forEach(item => {
             }
 
             else if (item == 'autoclicker'){
-                console.log("Autoclicker clicked")
-                setTimeout(() => {
-                    multiplierClicks.innerText = null;
-                    alert("Click multiplier ran out!");
-                }, 30000)
+                if (multiplierAutoclicks.innerText.length == 0) {
+                    multiplierAutoclicks.innerText = itemMultiplier;
+                    console.log(itemClicks, itemPoints)
+                    calculateStats(itemClicks, itemPoints)
+                    console.log("Autoclicker clicked")
+                    setTimeout(() => {
+                        multiplierAutoclicks.innerText = '';
+                        alert("Autoclicker ran out!");
+                    }, 30000)
+
+                    const clicksPerSecond = parseInt(itemMultiplier.slice(0, 1))
+
+                    function addClick() {
+                        clickCount += clicksPerSecond
+                        clickDisplay.innerText = clickCount;
+                    }
+                    
+                    
+                    let myInterval = setInterval(addClick, 1000)
+                    let timeOut = setTimeout(() => {
+                        clearInterval(myInterval)
+                    }, 30000)
+                }
+                else {
+                    alert("You currently have a booster running.")
+                }
             }
         }
     })
 });
+
