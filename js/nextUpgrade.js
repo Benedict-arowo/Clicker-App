@@ -4,62 +4,59 @@ const pointsUpgradeValue = document.getElementById("pointsUpgradeValue")
 const levelUpgradeValue = document.getElementById("levelUpgradeValue")
 const boosterUpgradeValue = document.getElementById("boosterUpgradeValue")
 const alertText = document.getElementById("alertText")
+const levelUpSound = new Audio("audio/levelUpSound.mp3")
 
-const pointsRequiredCal = () => {
-    currentLevel = parseInt(levelValue.innerText)
-    pointCal = Math.round((currentLevel * 1000) * .25);
-    pointsUpgradeValue.innerText = pointCal;
-    // console.log(pointCal)
+// Next upgrade Values 
+    let pointRequired;
+    let clickRequired;
+    let nextlevel = level + 1;
+
+const updateRequiredValues = () => {
+
+    // Random constant values made up to calculate the next upgrade values.
+
+    pointRequired = Math.round((level * 1000) * .25);
+    clickRequired = Math.round((level * 6000) * 1.25);
+
+    updateRequiredValuesDisplay()
+}
+ 
+const updateRequiredValuesDisplay = () => {
+    clicksUpgradeValue.innerText = clickRequired;
+    pointsUpgradeValue.innerText = pointRequired;
+    levelUpgradeValue.innerText = nextlevel;
 }
 
-const clicksRequiredCal = () => {
-    currentLevel = parseInt(levelValue.innerText)
-    clicksCal = Math.round((currentLevel * 6000) * 1.25);
-    clicksUpgradeValue.innerText = clicksCal;
-    //Upgrade level value
-    // console.log(currentLevel)   
-    levelUpgradeValue.innerText = currentLevel + 1;
-    // console.log(clicksCal)
-}
 
 const Verification = () => {
-    let RequiredPointsValue = parseInt(pointsUpgradeValue.innerText) 
-    let CurrentPointsValue = parseInt(pointsValue.innerText)
+    if (point >= pointRequired && click >= clickRequired) {
 
-    let RequiredClicksValue = parseInt(clicksUpgradeValue.innerText) 
-    let CurrentClicksValue = parseInt(clicksValue.innerText)
-    
-    if (CurrentPointsValue >= RequiredPointsValue && CurrentClicksValue >= RequiredClicksValue) {
-        currentLevel = parseInt(levelValue.innerText)
-        let upgradeLevelValue = parseInt(levelUpgradeValue.innerText)
-        let newPointValue = CurrentPointsValue - RequiredPointsValue;
-
-        pointsValue.innerText = newPointValue;
-        levelValue.innerText = currentLevel + 1;
-        pointsRequiredCal()
-
-        let newClickValue = CurrentClicksValue - RequiredClicksValue;
-        clicksValue.innerText = newClickValue;
-        clicksRequiredCal()
+        // Subtracting the upgrade click and point from the required values.
         
-        let newUpgradeValue = upgradeLevelValue + 1;
+        point -= pointRequired;
+        click -= clickRequired;
+        nextlevel++;
+        level++;
+
+        updateStatsDisplay()
+        updateRequiredValues();
+
         levelUpSound.currentTime = 0;
         levelUpSound.play()
-        levelUpgradeValue.innerText = newUpgradeValue;
         updateLocalStorage()
     }
 
     else {
 
-        if (CurrentPointsValue < RequiredPointsValue && CurrentClicksValue < RequiredClicksValue) {
+        if (point < pointRequired && click < clickRequired) {
             alertText.innerText = "You do not have enough points nor clicks!"
             displayAlert()
         }
-        else if (CurrentPointsValue < RequiredPointsValue) {
+        else if (point < pointRequired) {
             alertText.innerText = "You do not have enough points!"
             displayAlert()
         }
-        else if (CurrentClicksValue < RequiredClicksValue) {
+        else if (click < clickRequired) {
             alertText.innerText = "You do not have enough clicks!"
             displayAlert()
         }
@@ -76,10 +73,7 @@ const removeAlert = () => {
 }
 
 upgradeBtn.addEventListener("click", (e) => {
-    clickSound.volume = .3;
-    clickSound.play();
     Verification();
 })
 
-pointsRequiredCal();
-clicksRequiredCal();
+updateRequiredValues();

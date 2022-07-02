@@ -1,0 +1,55 @@
+header {
+  padding: 30px;
+  padding-bottom: 0;
+  width: 100%;
+  max-height: 250px;
+}
+header .headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+header .headerWrapper #logo {
+  cursor: pointer;
+}
+header .headerWrapper .topLeft {
+  display: flex;
+}
+header .headerWrapper .topLeft .themes {
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  gap: 20px;
+}
+header .headerWrapper .topLeft .themes .theme {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+header .headerWrapper .topLeft .themes .theme:hover {
+  transform: scale(1.1);
+}
+header .headerWrapper .topLeft .themes .red {
+  background-color: #FF7373;
+  border: 3px solid #8C0000;
+}
+header .headerWrapper .topLeft .themes .green {
+  background-color: #29FFB2;
+  border: 1px solid #006C45;
+}
+header .headerWrapper .topLeft #hamburger {
+  font-size: 48px;
+  align-self: flex-start;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: var(--toggleButtonColor);
+}
+header .headerWrapper .topLeft #hamburger:hover {
+  transform: rotate(180deg);
+  color: white;
+}
+header .headerWrapper .topLeft #hamburger:active {
+  transform: scale(1.1);
+  color: var(--borderColor);
+}/*# sourceMappingURL=header.css.map */

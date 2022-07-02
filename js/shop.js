@@ -1,43 +1,53 @@
 const shopItem = document.querySelectorAll(".itemLogo");
-const shopItemCLick = new Audio("audio/shopItemClick.mp3")
-let ethingy;
+const shopItemClickAudio = new Audio("audio/shopItemClick.mp3")
 
+const multiplierClicks = document.getElementById("multiplierValueClicks");
+const multiplierPoints = document.getElementById("multiplierValuePoints");
+const multiplierAutoclicks = document.getElementById("multiplierValueAutoClickers");
 
-const calculateStats = (clicks, points) => {
-    let newClickValue = parseFloat(clicksValue.innerText) - clicks;
-    let newPointValue = parseFloat(pointsValue.innerText) - points;
-    clicksValue.innerText = newClickValue;
-    pointsValue.innerText = newPointValue;
+let pointMultiplier = null;
+let clickMultipler = null;
+let autoclickerValue = null;
+
+const updateMultiplierDisplay = () => {
+    multiplierClicks.innerText = pointMultiplier;
+    multiplierPoints.innerText = clickMultipler;
+    multiplierAutoclicks.innerText = autoclickerValue;
+}
+
+const calculateStats = (clickCost, pointCost) => {
+    click -= parseFloat(clickCost);
+    point -= parseFloat(pointCost);
+    updateStatsDisplay();
 };
 
 shopItem.forEach(item => {
     item.addEventListener('click', (e) => {
+
         const clickedItemParent = e.target.parentNode.parentNode
         const item = clickedItemParent.parentNode.id;
         const itemRequirements = clickedItemParent.getElementsByTagName("span");
-        const itemClicks = parseFloat(itemRequirements[0].innerText)
-        const itemPoints = parseFloat(itemRequirements[1].innerText)
+        const clickCost = parseFloat(itemRequirements[0].innerText)
+        const pointCost = parseFloat(itemRequirements[1].innerText)
         const itemMultiplier = itemRequirements[2].innerText
-        console.log(itemClicks, itemPoints, itemMultiplier, item)
-        let currentPoints = parseFloat(pointsValue.innerText)
-        let currentClicks = parseFloat(clicksValue.innerText)
-        if (itemPoints > currentPoints && itemClicks > currentClicks) {
+
+        if (pointCost > point && clickCost > click) {
             alert("You do not have enough points nor clicks!");
         }
-        else  if (itemPoints > currentPoints)  {
+        else  if (pointCost > point)  {
             alert("You do not have enough points!")
         }
-        else if (itemClicks > currentClicks) {
+        else if (clickCost > click) {
             alert("You do not have enough clicks!")
         }
         else {
-            shopItemCLick.play()
             if (item == 'point'){
-                if (multiplierPoints.innerText.length == 0) {
-                    multiplierPoints.innerText = itemMultiplier;
-                    calculateStats(itemClicks, itemPoints)
+                if (pointMultiplier == null) {
+                    pointMultiplier = itemMultiplier;
+                    calculateStats(clickCost, pointCost)
                     const pointMultiplierTimeout = setTimeout(() => {
-                        multiplierPoints.innerText = '';
+                        pointMultiplier = null;
+                        updateMultiplierDisplay()
                         alert("Point multiplier ran out!");
                     }, 60000)
                 }
@@ -47,12 +57,12 @@ shopItem.forEach(item => {
             }
 
             else if (item == 'click') {
-                if (multiplierClicks.innerText.length == 0) {
-                    multiplierClicks.innerText = itemMultiplier;
-                    console.log(itemClicks, itemPoints)
-                    calculateStats(itemClicks, itemPoints)
+                if (clickMultipler == null) {
+                    clickMultipler = itemMultiplier;
+                    calculateStats(clickCost, pointCost)
                     const clickMultiplierTimeout = setTimeout(() => {
-                        multiplierClicks.innerText = '';
+                        clickMultipler = null;
+                        updateMultiplierDisplay()
                         alert("Click multiplier ran out!");
                     }, 120000)
                 }
@@ -62,26 +72,25 @@ shopItem.forEach(item => {
             }
 
             else if (item == 'autoclicker'){
-                if (multiplierAutoclicks.innerText.length == 0) {
-                    multiplierAutoclicks.innerText = itemMultiplier;
-                    console.log(itemClicks, itemPoints)
-                    calculateStats(itemClicks, itemPoints)
-                    console.log("Autoclicker clicked")
+                if (autoclickerValue == null) {
+                    autoclickerValue = itemMultiplier;
+                    calculateStats(clickCost, pointCost)
                     setTimeout(() => {
-                        multiplierAutoclicks.innerText = '';
+                        autoclickerValue = null;
+                        updateMultiplierDisplay()
                         alert("Autoclicker ran out!");
                     }, 30000)
 
                     const clicksPerSecond = parseInt(itemMultiplier.slice(0, 1))
 
                     function addClick() {
-                        clickCount += clicksPerSecond
-                        clickDisplay.innerText = clickCount;
+                        currentClickCount += clicksPerSecond
+                        updateClickAmount()
                     }
                     
                     
                     let myInterval = setInterval(addClick, 1000)
-                    let timeOut = setTimeout(() => {
+                    let timeout = setTimeout(() => {
                         clearInterval(myInterval)
                     }, 30000)
                 }
@@ -89,6 +98,8 @@ shopItem.forEach(item => {
                     alert("You currently have a booster running.")
                 }
             }
+            updateMultiplierDisplay()
+            shopItemClickAudio.play()
         }
     })
 });

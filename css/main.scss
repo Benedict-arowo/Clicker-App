@@ -59,11 +59,6 @@ main {
 }
 
 .mainArea {
-    // position: absolute;
-    right: 60px;
-    bottom: 0;
-    height: 77%;
-    width: 80%;
     background-color: white;
 
     .mainAreaWrapper {
@@ -75,6 +70,7 @@ main {
         height: 100%;
         padding: 10px 10px 20px 10px;
         overflow: hidden;
+        width: 100%;
 
         .upgrade {
             margin-top: 15px;

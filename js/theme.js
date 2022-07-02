@@ -1,6 +1,5 @@
 const themeButtons = document.querySelectorAll(".theme")
 const style = document.getElementById("style")
-const logo = document.getElementById("logo")
 const themeSound = new Audio("audio/themeSound.mp3")
 let themeValue = "";
 
