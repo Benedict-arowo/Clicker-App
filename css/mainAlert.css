@@ -1,0 +1,25 @@
+.mainAlert p {
+  color: var(--textColor);
+}
+
+.mainAlert {
+  background-color: var(--secondBgColor);
+  border: 1px solid var(--borderColor);
+  max-width: 400px;
+  max-height: 120px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  overflow: hidden;
+  top: 0;
+  margin: 10px auto;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.mainAlertVisible {
+  opacity: 1 !important;
+}/*# sourceMappingURL=mainAlert.css.map */

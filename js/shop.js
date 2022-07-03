@@ -4,6 +4,7 @@ const shopItemClickAudio = new Audio("audio/shopItemClick.mp3")
 const multiplierClicks = document.getElementById("multiplierValueClicks");
 const multiplierPoints = document.getElementById("multiplierValuePoints");
 const multiplierAutoclicks = document.getElementById("multiplierValueAutoClickers");
+const mainAlertText = document.getElementById("mainAlert");
 
 let pointMultiplier = null;
 let clickMultipler = null;
@@ -21,6 +22,15 @@ const calculateStats = (clickCost, pointCost) => {
     updateStatsDisplay();
 };
 
+const mainAlert = (inputText) => {
+    mainAlertText.innerText += inputText + "\n";
+    mainAlertText.parentElement.classList.add("mainAlertVisible")
+    const hideMainAlert = setTimeout(() => {
+        mainAlertText.parentElement.classList.remove("mainAlertVisible")
+        mainAlertText.innerText = "";
+    }, 3000)
+}
+
 shopItem.forEach(item => {
     item.addEventListener('click', (e) => {
 
@@ -31,14 +41,15 @@ shopItem.forEach(item => {
         const pointCost = parseFloat(itemRequirements[1].innerText)
         const itemMultiplier = itemRequirements[2].innerText
 
+        console.log(pointCost, clickCost)
         if (pointCost > point && clickCost > click) {
-            alert("You do not have enough points nor clicks!");
+            mainAlert("You do not have enough points nor clicks!");
         }
         else  if (pointCost > point)  {
-            alert("You do not have enough points!")
+            mainAlert("You do not have enough points!")
         }
         else if (clickCost > click) {
-            alert("You do not have enough clicks!")
+            mainAlert("You do not have enough clicks!")
         }
         else {
             if (item == 'point'){
@@ -48,11 +59,11 @@ shopItem.forEach(item => {
                     const pointMultiplierTimeout = setTimeout(() => {
                         pointMultiplier = null;
                         updateMultiplierDisplay()
-                        alert("Point multiplier ran out!");
+                        mainAlert("Point multiplier ran out!");
                     }, 60000)
                 }
                 else {
-                    alert("You currently have a booster running.")
+                    mainAlert("You currently have a booster running.")
                 }
             }
 
@@ -63,11 +74,11 @@ shopItem.forEach(item => {
                     const clickMultiplierTimeout = setTimeout(() => {
                         clickMultipler = null;
                         updateMultiplierDisplay()
-                        alert("Click multiplier ran out!");
+                        mainAlert("Click multiplier ran out!");
                     }, 120000)
                 }
                 else {
-                    alert("You currently have a booster running.")
+                    mainAlert("You currently have a booster running.")
                 }
             }
 
@@ -78,7 +89,7 @@ shopItem.forEach(item => {
                     setTimeout(() => {
                         autoclickerValue = null;
                         updateMultiplierDisplay()
-                        alert("Autoclicker ran out!");
+                        mainAlert("Autoclicker ran out!");
                     }, 30000)
 
                     const clicksPerSecond = parseInt(itemMultiplier.slice(0, 1))
@@ -95,7 +106,7 @@ shopItem.forEach(item => {
                     }, 30000)
                 }
                 else {
-                    alert("You currently have a booster running.")
+                    mainAlert("You currently have a booster running.")
                 }
             }
             updateMultiplierDisplay()
