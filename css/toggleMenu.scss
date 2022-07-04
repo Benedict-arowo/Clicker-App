@@ -5,7 +5,7 @@
 .toggleMenu {
     position: fixed;
     background-color: var(--toggleMenuBgColor);
-    width: 600px;
+    max-width: 600px;
     border-left: 2px solid var(--borderColor);
     top: 0;
     bottom: 0;
@@ -25,12 +25,10 @@
         flex-direction: row;
         gap: 30px;
         margin: 20px 10px 10px 20px;
-        align-content: center;
         justify-content: space-between;
 
         .topRight {
             font-size: 40px;
-            margin-right: 120px;
             transition: all .3s;
             cursor: pointer;
 
@@ -114,10 +112,23 @@
             color: var(--textColor);
         }
 
+@media only screen and (max-width: 750px) {
+    .upgrades {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .options {
+        width: 100%;
+        gap: 0;
+        justify-items: center !important;
+    }
+} 
         .upgrades {
             display: flex;
             gap: 20px;
-            justify-content: space-around;
+            padding: 0 10px;
+
 
             .requirements {
                 font-weight: 200;
@@ -138,6 +149,7 @@
                 border: 2px solid var(--borderColor);
                 border-radius: 15px;
                 box-shadow: 5px -1px 5px var(--boxShadow);
+                margin: 0 auto;
             }
 
 

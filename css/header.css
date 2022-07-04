@@ -52,4 +52,24 @@ header .headerWrapper .topLeft #hamburger:hover {
 header .headerWrapper .topLeft #hamburger:active {
   transform: scale(1.1);
   color: var(--borderColor);
+}
+
+@media only screen and (max-width: 750px) {
+  .themes {
+    display: none !important;
+  }
+
+  header {
+    padding: 0 !important;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .headerWrapper {
+    padding: 0 !important;
+  }
+  .headerWrapper i {
+    margin-top: 40px;
+    margin-right: 20px;
+  }
 }/*# sourceMappingURL=header.css.map */

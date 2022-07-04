@@ -64,3 +64,25 @@ header {
         }
     }
 }
+
+@media only screen and (max-width: 750px) {
+    .themes {
+        display: none !important;
+    }
+
+    header {
+        padding: 0 !important;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .headerWrapper {
+        padding: 0 !important;
+
+
+        i {
+            margin-top: 40px;
+            margin-right: 20px;
+        }
+    }
+  }

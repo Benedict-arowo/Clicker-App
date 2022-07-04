@@ -1,24 +1,24 @@
 main {
-  min-height: 73vh;
   display: flex;
+  margin-top: 20px;
+  height: 400px;
 }
 main .mainWrapper {
   width: 100%;
-  align-self: flex-end;
-  height: 100%;
-  align-content: flex-end;
   display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
+  justify-content: space-between;
+  gap: 5px;
 }
 
+@media screen and (max-width: 1050px) {
+  main .mainWrapper {
+    flex-wrap: wrap;
+  }
+}
 .stats {
   background-color: var(--secondBgColor);
   width: 220px;
-  align-self: flex-end;
-  overflow: hidden;
   height: 400px;
-  bottom: 0;
   padding: 15px;
   border: 1px solid var(--borderColor);
 }
@@ -49,11 +49,8 @@ main .mainWrapper {
 }
 
 .mainArea {
-  right: 60px;
-  bottom: 0;
-  height: 77%;
-  width: 80%;
   background-color: white;
+  flex-basis: 1200px;
 }
 .mainArea .mainAreaWrapper {
   display: flex;
@@ -64,12 +61,14 @@ main .mainWrapper {
   height: 100%;
   padding: 10px 10px 20px 10px;
   overflow: hidden;
+  width: 100%;
 }
 .mainArea .mainAreaWrapper .upgrade {
   margin-top: 15px;
   background-color: white;
   border-radius: 25px 25px 0 0;
   overflow: hidden;
+  max-height: 300px;
   height: 100%;
   align-self: flex-end;
   width: 200px;
@@ -100,23 +99,25 @@ main .mainWrapper {
   min-height: 150px;
 }
 .mainArea .mainAreaWrapper .areaContent {
-  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px 20px;
   align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 .mainArea .mainAreaWrapper .areaContent .mainContent {
   display: flex;
+  flex-wrap: wrap;
 }
 .mainArea .mainAreaWrapper .areaContent .mainContent #button {
   margin-top: 20px;
   background: var(--thirdBgColor);
   border: 7px solid #FFFFFF;
   border-radius: 50%;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   cursor: pointer;
   transition: all 0.5s;
   box-shadow: 10px -1px 10px var(--boxShadow);
@@ -135,8 +136,8 @@ main .mainWrapper {
   display: flex;
   align-self: center;
   gap: 60px;
-  margin-left: 300px;
-  margin-top: 20px;
+  width: 100%;
+  justify-content: flex-end;
 }
 .mainArea .mainAreaWrapper .areaContent .buttons button {
   cursor: pointer;
