@@ -1,28 +1,32 @@
 main {
     display: flex;
-    margin-top: 20px;
-    height: 400px;
+    // margin-top: 40px;
     .mainWrapper {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        // flex-wrap: wrap;
-        gap: 5px;
+        gap: 20px;
+        padding: 0 20px;
     }
 }
 
 @media screen and (max-width: 1050px) {
+    body {
+        height: max-content;
+    }
+    
     main {
-
+        margin-top: 40px;
         .mainWrapper {
-            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            justify-content: left;
         }
     }
 }
 
 .stats {
     background-color: var(--secondBgColor);
-    width: 220px;
+    min-width: 220px;
     height: 400px;
     padding: 15px;
     border: 1px solid var(--borderColor);
@@ -138,7 +142,7 @@ main {
                 }
 
                 #button:active {
-                    transform: scale(1.1);
+                    transform: scale(1.05);
                 }
 
                 p {

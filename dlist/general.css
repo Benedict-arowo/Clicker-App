@@ -8,10 +8,10 @@ body {
   background-color: var(--mainBgColor);
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
 }
 
 :root {

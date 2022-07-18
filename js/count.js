@@ -106,15 +106,12 @@ const updateLocalStorage = () => {
 
 // Checks if the player has stats saved in the localStorage, It checks the level since a player can only have a level set in the localstorage if they've played previously.
 
-if (localStorage.getItem("level") === null) {
-}
-else {
+if (localStorage.getItem("level")) {
     click = parseFloat(localStorage.getItem("clicks"));
     point = parseFloat(localStorage.getItem("points"));
     level = parseFloat(localStorage.getItem("level"));
     currentClickCount = parseFloat(localStorage.getItem('clickCount'));
     updateClickAmount();
     updateStatsDisplay();
-    }
-
+}
 

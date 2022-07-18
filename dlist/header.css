@@ -47,7 +47,6 @@ header .headerWrapper .topLeft #hamburger {
 }
 header .headerWrapper .topLeft #hamburger:hover {
   transform: rotate(180deg);
-  color: white;
 }
 header .headerWrapper .topLeft #hamburger:active {
   transform: scale(1.1);
@@ -58,13 +57,11 @@ header .headerWrapper .topLeft #hamburger:active {
   .themes {
     display: none !important;
   }
-
   header {
     padding: 0 !important;
     width: 100%;
     overflow: hidden;
   }
-
   .headerWrapper {
     padding: 0 !important;
   }

@@ -19,10 +19,7 @@ themeButtons.forEach(item => {
     })
 })
 
-if (localStorage.getItem("theme") == null) {
-
-}
-else {
+if (localStorage.getItem("theme")) {
     updateTheme(localStorage.getItem("theme"));
 }
 

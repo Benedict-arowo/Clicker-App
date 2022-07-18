@@ -41,10 +41,6 @@
             transform: rotate(180deg);
         }
 
-        .topRight:hover i {
-            color: white;
-        }
-
         .topRight:active {
             transform: scale(1.1);
             color: var(--borderColor);
@@ -75,8 +71,7 @@
 
     #reset:hover, #help:hover{
         background-color: var(--thirdBgColor);
-        transform: scale(1.2) rotate(360deg);
-        font-weight: 600;
+        transform: scale(1.1);
     }
 
     .shop {
@@ -191,12 +186,3 @@
 }
 
 
-
-// @keyframes display {
-//     from {
-//         right: -400px;
-//     }
-//     to {
-//         right: 0px;
-//     }
-// }
