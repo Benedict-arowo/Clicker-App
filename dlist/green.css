@@ -1,0 +1,19 @@
+:root {
+    --mainBgColor:  #F2FFF6;
+    --secondBgColor: #EDFFF2;
+    --borderColor: #29FFB2;
+    --thirdBgColor: #29FFB2;
+    --toggleMenuBgColor: #29ffb185;
+    --textColor: rgb(5, 186, 5); 
+    --toggleButtonColor: #0bb57792;
+    --boxShadow: rgba(29, 130, 29, 0.633);
+
+    --menuItemBg: #98ffd9;
+}
+
+    .green {
+        border: 3px solid #006C45 !important;
+    }
+    .red {
+         border:1px solid #8C0000 !important;
+     }

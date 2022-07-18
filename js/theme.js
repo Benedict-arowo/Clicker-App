@@ -7,7 +7,6 @@ const updateTheme = (theme) => {
     style.setAttribute("href", theme)
     themeValue = theme
     localStorage.setItem("theme", theme);
-    // console.log(style)
 }
 
 themeButtons.forEach(item => {
